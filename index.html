@@ -1,0 +1,96 @@
+<script languaje="javascript">
+  var getin = prompt("CONTRASEÑA")
+  if (getin!="carreterasegura")
+  {location.href='https://saferoad20.github.io/error/'}
+  else
+  {alert('Contraseña correcta')}
+  
+</script>
+<!DOCTYPE html>
+<body style="background-color:#BDFF0D;">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=4.0">
+    <title>SafeRoad</title>
+
+<center>
+<h1>Carretera Segura</h1
+
+</head>
+<body>
+<div id="app">
+<form @submit.prevent="enviarMensaje">
+
+LED1:
+<select v-model="	status" style="width:100px; height:30px">
+<option value=0>0</option>
+<option value=1>1</option>
+</select>
+<input type="submit" value="Enviar!">    
+</form>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first 
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase-app.js"></script>-->
+<script src="https://www.gstatic.com/firebasejs/7.13.1/firebase.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<img src="paisaje.jpg">/
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+apiKey: "AIzaSyB5UspwwKg1xPVkR_op433sszcE-t0oWQM",
+  authDomain: "prueba-html-8ccce.firebaseapp.com",
+  databaseURL: "https://prueba-html-8ccce-default-rtdb.firebaseio.com",
+  projectId: "prueba-html-8ccce",
+  storageBucket: "prueba-html-8ccce.appspot.com",
+  messagingSenderId: "431752036925",
+  appId: "1:431752036925:web:42670a3fe29e05d64b2054"
+};
+
+  // Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+//Referencia a la base de datos firebase
+var db=firebase.database();
+//Guardar con set
+/*
+db.ref("/pinOut").set({
+    status: 1
+
+
+	
+});*/
+
+new Vue({
+el: "#app",
+data: {
+status: null,
+},
+
+methods: {
+enviarMensaje() {
+db.ref("/pinOut")
+.set({
+
+
+status: parseInt(this.status),
+});
+}
+}
+});
+
+
+
+
+</script>
+</html>
+
+
+
