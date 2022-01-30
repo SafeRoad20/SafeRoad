@@ -44,7 +44,6 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 <img src="paisaje.jpg">/
 
 <script>
-  // Your web app's Firebase configuration
   const firebaseConfig = {
   apiKey: "AIzaSyBafT5wwePqIn9PJ1_pcX3-cqJj_C86MZE",
   authDomain: "safe-road-2.firebaseapp.com",
@@ -53,12 +52,12 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
   storageBucket: "safe-road-2.appspot.com",
   messagingSenderId: "849534640144",
   appId: "1:849534640144:web:70735f3947ebacb93c6a95",
-  measurementId: "G-QT1PDRBVW8
+  measurementId: "G-QT1PDRBVW8"
 };
 
-  // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-//Referencia a la base de datos firebase
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 var db=firebase.database();
 //Guardar con set
 /*
